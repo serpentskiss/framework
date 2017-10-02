@@ -1,2 +1,4 @@
 # framework
-Custom lightweight PHP framework
+A custom lightweight PHP framework
+
+## Installation
