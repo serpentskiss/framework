@@ -1,14 +1,14 @@
 <?php
 
 /**
- * TITLE HERE
+ * CUSTOM EXCEPTION HANDLER
  * 
  * @name        customErrors.php
  * @package     framework.local
  * @version     
  * @since       10-May-2017 12:03:14
  * @author      Jon Thompson
- * @abstract    
+ * @abstract    Trap all errors thrown from the framework   
  */
 error_reporting(E_ALL ^ (E_NOTICE | E_DEPRECATED));
 include_once("autoLoader.php");
