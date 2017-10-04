@@ -1,0 +1,19 @@
+#################################################################################
+# STOP ANYTHING EXECUTING IN THIS FOLDER                                        #
+#################################################################################
+php_flag engine off
+RemoveHandler .php
+RemoveType .php
+
+<FilesMatch "\.((php[0-9]?)|p?html?|pl|cgi|sh|java|cpp|c|h|js|rc)$">
+    SetHandler None
+    Order Deny,Allow
+    Deny from All
+</FilesMatch>
+
+
+RewriteEngine On
+
+# If the requested file is not a javascript file, deny it
+RewriteCond %{REQUEST_URI} !\.js$ [NC]
+RewriteRule . - [F,L]

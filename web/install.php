@@ -303,6 +303,8 @@ EOD;
      */
     function htaccess() {
         $htaccess = <<<EOD
+Options -Indexes
+
 RewriteEngine On
 
 RewriteRule ^index\.php$ - [L]
