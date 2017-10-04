@@ -368,6 +368,7 @@ class config {
     const DIR_WEB      = self::DIR_BASE . '/web';
     const DIR_SITE     = self::DIR_WEB . "/site";
     const DIR_INCLUDES = self::DIR_WEB . "/includes";
+    const DIR_TEMPLATES = self::DIR_WEB . "/templates";
     const DIR_PRIVATE  = self::DIR_BASE . '/private';
     const DIR_UPLOADS  = self::DIR_BASE . '/uploads';
     const DIR_LOGS     = self::DIR_BASE . '/logs';
@@ -383,7 +384,8 @@ class config {
      * Site settings
      */
     const SITE_NAME     = '{$this->siteName}';
-
+    const TEMPLATE      = "default";
+    
     
     /**
      * Options (not implemented yet)
@@ -392,6 +394,7 @@ class config {
     const NOTIFY_ADMIN  = FALSE;
     const USE_CACHE     = FALSE;
     const DEBUG         = FALSE;
+    const USE_HTTPS     = FALSE;
 }
 EOD;
     

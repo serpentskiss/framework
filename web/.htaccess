@@ -4,15 +4,6 @@ RewriteEngine On
 
 RewriteRule ^index\.php$ - [L]
 
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^(.+[^/])$ $1/ [R]
-
-# Prevent direct access to certain folders unless via a POST
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteCond %{REQUEST_METHOD} !POST
-RewriteCond %{REQUEST_URI} /(core|site|includes)
-RewriteRule $.*$ - [R=403,F,L]
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php/$1 [L]
