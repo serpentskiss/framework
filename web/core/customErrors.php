@@ -34,15 +34,16 @@ class customException extends Exception {
                     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet">
                     <style>
                         html {font-family: "Raleway"}
-                        h1 {margin: 0; padding: 0; font-szie: 1.4em; text-align: center;}
-                        table {border-collapse: collapse; border: 1px solid #234; width: auto; margin: 10px auto;}
+                        h1 {margin: 0; padding: 0; font-szie: 1.4em; text-align: center; color: #345;}
+                        thead tr.header {background-color: #BBC;}
+                        table {border-collapse: collapse; border: 1px solid #BBC; width: auto; margin: 10px auto;color: #567;}
                         tbody tr:nth-child(odd) {background-color: #EEF;}
                         td {padding: 3px 10px;}
                     </style>
                     
                     <table>
                         <thead>
-                            <tr>
+                            <tr class='header'>
                                 <td colspan='2'><h1>An Error Has Occurred</h1></td>
                             </tr>
                         </thead>
