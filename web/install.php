@@ -363,16 +363,16 @@ class config {
     /**
      * Paths
      */
-    const DIR_BASE     = '{$this->basePath}';
-    const DIR_LIBRARY  = self::DIR_BASE . "/app";
-    const DIR_WEB      = self::DIR_BASE . '/web';
-    const DIR_SITE     = self::DIR_WEB . "/site";
-    const DIR_INCLUDES = self::DIR_WEB . "/includes";
+    const DIR_BASE      = '{$this->basePath}';
+    const DIR_LIBRARY   = self::DIR_BASE . "/app";
+    const DIR_WEB       = self::DIR_BASE . '/web';
+    const DIR_SITE      = self::DIR_WEB . "/site";
+    const DIR_INCLUDES  = self::DIR_WEB . "/includes";
     const DIR_TEMPLATES = self::DIR_WEB . "/templates";
-    const DIR_PRIVATE  = self::DIR_BASE . '/private';
-    const DIR_UPLOADS  = self::DIR_BASE . '/uploads';
-    const DIR_LOGS     = self::DIR_BASE . '/logs';
-    const DIR_CACHE    = self::DIR_BASE . '/cache';
+    const DIR_PRIVATE   = self::DIR_BASE . '/private';
+    const DIR_UPLOADS   = self::DIR_BASE . '/uploads';
+    const DIR_LOGS      = self::DIR_BASE . '/logs';
+    const DIR_CACHE     = self::DIR_BASE . '/cache';
 
    
     /**
@@ -383,8 +383,9 @@ class config {
     /**
      * Site settings
      */
-    const SITE_NAME     = '{$this->siteName}';
-    const TEMPLATE      = "default";
+    const SITE_NAME             = '{$this->siteName}';
+    const TEMPLATE              = "default";
+    const ADMIN_EMAIL_ADDRESS   = '{$this->adminEmailAddress}';
     
     
     /**

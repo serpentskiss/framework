@@ -33,6 +33,15 @@ $metaData               = "";
 $socialMediaMetaData    = "";
 $currentDate            = date("l jS F, Y");
 $currentTime            = date("h:i:s a");
+$metaPageDescription = '';
+$metaPageKeywords = '';
+$metaPageAuthor = '';
+$pageTitle = '';
+$twitterUsername = '';
+$facebookAdminId = '';
+$facebookImageLarge = '';
+$twitterImageLarge = '';
+$twitterImageSmall = '';
 
 
 /**

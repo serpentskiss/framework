@@ -96,12 +96,25 @@ if($foundCache !== TRUE) {
  * Search/replace on template variables
  */
 $searchReplace = [
-    "[_BASE_URL_]"                  => \config\config::BASE_URL,
-    "[_SITE_NAME_]"                 => \config\config::SITE_NAME,
-    "[_META_DATA_]"                 => $metaData,
-    "[_SOCIAL_MEDIA_META_DATA_]"    => $socialMediaMetaData,
-    "[_CURRENT_DATE_]"              => $currentDate,
-    "[_CURRENT_TIME_]"              => $currentTime
+    "[_BASE_URL_]"                      => \config\config::BASE_URL,
+    "[_SITE_NAME_]"                     => \config\config::SITE_NAME,
+    "[_META_DATA_]"                     => $metaData,
+    "[_SOCIAL_MEDIA_META_DATA_]"        => $socialMediaMetaData,
+    "[_CURRENT_DATE_]"                  => $currentDate,
+    "[_CURRENT_TIME_]"                  => $currentTime,
+    "[__META_PAGE_DESCRIPTION__]"       => $metaPageDescription,
+    "[__META_PAGE_KEYWORDS__]"          => $metaPageKeywords,
+    "[__META_PAGE_AUTHOR__]"            => $metaPageAuthor,
+    "[__PAGE_TITLE__]"                  => $pageTitle,
+    "[__META_CONTACT_EMAIL_ADDRESS__]"  => \config\conf::ADMIN_EMAIL_ADDRESS,
+    "[__META_COPYRIGHT__]"              => \config\config::SITE_NAME,
+    "[__TWITTER_USER__]"                => $twitterUsername,
+    "[__PAGE_URL__]"                    => \config\config::BASE_URL . "/{$section}/{$action}",
+    "[__FACEBOOK_ADMIN_ID__]"           => $facebookAdminId,
+    "[__FACEBOOK_IMAGE_LARGE__]"        => $facebookImageLarge, /* 1200x1200 image */
+    "[__TWITTER_IMAGE_LARGE__]"         => $twitterImageLarge,  /* 280x150 image */
+    "[__TWITTER_IMAGE_SMALL__]"         => $twitterImageSmall,  /* 120x120 image */
+    
 ];
 
 $finalHtml = str_replace(array_keys($searchReplace), array_values($searchReplace), $htmlOut);
