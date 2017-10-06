@@ -19,12 +19,19 @@ class customException extends Exception {
         $this->httpError();
     }
 
+    /**
+     * Display a custom error page
+     * 
+     * @param int $httpCode The HTTP error code to send with the error page
+     */
     public function httpError($httpCode=404) {
-        $httpResponse = \http\httpResponse::getCode($httpCode);
-        $errorMessage = $this->message;
-        $fileName = str_replace(\config\config::DIR_BASE, "", $this->file);
-        $lineNumber = $this->line;
-        
+        /**
+         * Get/set the error page to display. Check in the templates directory 
+         * for (in this order)
+         * - a {HTTP CODE}.php file
+         * - a generic error.php
+         * - use the built-in default HTML
+         */
         if(file_exists(\config\config::DIR_TEMPLATES . "/" . \config\config::TEMPLATE . "/{$httpCode}.php")) {
             $errorPage = file_get_contents(\config\config::DIR_TEMPLATES . "/" . \config\config::TEMPLATE . "/{$httpCode}.php");
         } elseif(file_exists(\config\config::DIR_TEMPLATES . "/" . \config\config::TEMPLATE . "/error.php")) {
@@ -69,18 +76,34 @@ class customException extends Exception {
 EOD;
         }
         
-        $trace = $this->getTrace();
+        /**
+         * Get the error data
+         */
+        $httpResponse = \http\httpResponse::getCode($httpCode);
+        $errorMessage = $this->message;
+        $fileName     = str_replace(\config\config::DIR_BASE, "", $this->file);
+        $lineNumber   = $this->line;
+        
+        /**
+         * There's sometimes referal data in the trace entries. Use it if available
+         */
+        $trace     = $this->getTrace();
         $traceLine = $trace[1]["line"];
         $traceFile = str_replace(\config\config::DIR_BASE, "", $trace[1]["file"]);
+        $traceText = $traceLine != '' && $traceFile != '' ? "Line {$traceLine} : {$traceFile}" : "None available";
         
+        /**
+         * Replace the template placeholders with real data and display the 
+         * error page with an appropriate HTTP response code
+         */
         $searchReplace = array(
-            //"__LINE_NUMBER__"   => $lineNumber,
-            //"__FILE_NAME__"     => $fileName,
+            "__LINE_NUMBER__"   => $lineNumber,
+            "__FILE_NAME__"     => $fileName,
             "__GENERATED_BY__"  => "Line {$lineNumber} : {$fileName}",
             "__ERROR_MESSAGE__" => str_replace(\config\config::DIR_BASE, "", $errorMessage),
             "__HTTP_CODE__"     => $httpCode,
             "__HTTP_ERROR__"    => $httpResponse["text"],
-            "__TRACE__"         => "Line {$traceLine} : {$traceFile}"
+            "__TRACE__"         => $traceText
         );
         
         $errorPage = str_replace(array_keys($searchReplace), array_values($searchReplace), $errorPage);
