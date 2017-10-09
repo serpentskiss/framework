@@ -303,20 +303,21 @@ EOD;
      */
     function htaccess() {
         $htaccess = <<<EOD
+#################################################################################
+#                                                                               #
+#                           FRAMEWORK HTACCESS RULES                            #
+#                                                                               #
+#################################################################################
+# RELEASE       1.0                                                             #
+# AUTHOR        Jon Thompson                                                    #
+# DATE          9th October 2017                                                #
+#################################################################################
+
 Options -Indexes
 
 RewriteEngine On
 
 RewriteRule ^index\.php$ - [L]
-
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^(.+[^/])$ $1/ [R]
-
-# Prevent direct access to certain folders unless via a POST
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteCond %{REQUEST_METHOD} !POST
-RewriteCond %{REQUEST_URI} /(core|site|includes)
-RewriteRule $.*$ - [R=403,F,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
