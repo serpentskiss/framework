@@ -1,3 +1,3 @@
 .gitignore
-/web
 /nbproject/*
+/web/config.php

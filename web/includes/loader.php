@@ -114,7 +114,6 @@ $searchReplace = [
     "[__FACEBOOK_IMAGE_LARGE__]"        => $facebookImageLarge, /* 1200x1200 image */
     "[__TWITTER_IMAGE_LARGE__]"         => $twitterImageLarge,  /* 280x150 image */
     "[__TWITTER_IMAGE_SMALL__]"         => $twitterImageSmall,  /* 120x120 image */
-    
 ];
 
 $finalHtml = str_replace(array_keys($searchReplace), array_values($searchReplace), $htmlOut);
